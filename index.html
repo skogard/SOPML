@@ -46,8 +46,8 @@ h1 {
 <a href="javascript: (function() { let outlines = Array.prototype.map.call(document.querySelectorAll('.sidebar-publication'), function (el) { return `<outline xmlUrl='${el.getAttribute('href')}/feed' />` }).join('\n'); let opml = `<opml version='2.0'>\n<body>\n<outline text='Subscriptions' title='Subscriptions'>\n${outlines}\n</outline>\n</body>\n</opml>`; var data = new Blob([opml], {type: 'application/xml'}); var url = window.URL.createObjectURL(data); let a = document.createElement('a'); a.textContent = 'DOWNLOAD RSS COLLECTION'; a.href = url; a.download = 'opml.xml'; a.setAttribute('style', 'color: white; background: royalblue; padding: 10px 20px; border-radius: 30px; text-decoration: none;'); let popup = document.createElement('div'); popup.setAttribute('style', 'top:0; padding: 20px; text-align: center; font-family: sans-serif; font-size: 16px;'); popup.appendChild(a); document.body.insertBefore(popup, document.body.firstChild);})();">Substack OPML</a>
 </div>
 <div class='step'>
-<div>Step 2. Go to Substack.com dashboard, click the bookmarklet, and download the OPML file</div>
-<img src="bookmarklet.gif">
+  <div>Step 2. Go to <a href="https://reader.substack.com/inbox">Substack Reader</a>, click the bookmarklet, and download the OPML file</div>
+  <img src="bookmarklet.gif">
 </div>
 </body>
 </html>
