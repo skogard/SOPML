@@ -1,5 +1,17 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>SOPML</title>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SOPML" />
+<meta name="twitter:description" content="Export Substack subscriptions to OPML" />
+<meta name="twitter:image" content="https://skogard.github.io/SOPML/sopml.png" />
+<meta property="og:url" content="https://skogard.github.io/SOPML/" />
+<meta property="og:type"   content="website" />
+<meta property="og:title" content="SOPML" />
+<meta property="og:description" content="Export Substack subscriptions to OPML" />
+<meta property="og:image" content="https://skogard.github.io/SOPML/sopml.png" />
 <style>
 body {
   display: flex;
@@ -7,14 +19,18 @@ body {
   align-items: center;
   font-family: sans-serif;
 }
-a {
+a.button {
   background: royalblue;
   color: white;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px;
   border-radius: 4px;
   text-decoration: none;
   margin: 20px 0;
+  font-size: 14px;
+}
+a {
+  color: royalblue;
 }
 .container {
   color: gray;
@@ -43,10 +59,10 @@ h1 {
 </div>
 <div class='step'>
 <div>Step 1. Drag below button to your browser bookmarks bar</div>
-<a href="javascript: (function() { let outlines = Array.prototype.map.call(document.querySelectorAll('.sidebar-publication'), function (el) { return `<outline xmlUrl='${el.getAttribute('href')}/feed' />` }).join('\n'); let opml = `<opml version='2.0'>\n<body>\n<outline text='Subscriptions' title='Subscriptions'>\n${outlines}\n</outline>\n</body>\n</opml>`; var data = new Blob([opml], {type: 'application/xml'}); var url = window.URL.createObjectURL(data); let a = document.createElement('a'); a.textContent = 'DOWNLOAD RSS COLLECTION'; a.href = url; a.download = 'opml.xml'; a.setAttribute('style', 'color: white; background: royalblue; padding: 10px 20px; border-radius: 30px; text-decoration: none;'); let popup = document.createElement('div'); popup.setAttribute('style', 'top:0; padding: 20px; text-align: center; font-family: sans-serif; font-size: 16px;'); popup.appendChild(a); document.body.insertBefore(popup, document.body.firstChild);})();">Substack OPML</a>
+<a class="button" href="javascript: (async function() { document.querySelector('.sidebar-expand-list').click(); await new Promise(r => setTimeout(r, 1000)); let outlines = Array.prototype.map.call(document.querySelectorAll('.sidebar-publication'), function (el) { return `<outline xmlUrl='${el.getAttribute('href')}/feed' />` }).join('\n'); let opml = `<opml version='2.0'>\n<body>\n<outline text='Subscriptions' title='Subscriptions'>\n${outlines}\n</outline>\n</body>\n</opml>`; var data = new Blob([opml], {type: 'application/xml'}); var url = window.URL.createObjectURL(data); let a = document.createElement('a'); a.textContent = 'DOWNLOAD RSS COLLECTION'; a.href = url; a.download = 'opml.xml'; a.setAttribute('style', 'color: white; background: royalblue; font-size: 14px; padding: 10px 20px; border-radius: 30px; text-decoration: none;'); let popup = document.createElement('div'); popup.setAttribute('style', 'top:0; padding: 20px; text-align: center; font-family: sans-serif; font-size: 16px;'); popup.appendChild(a); document.body.insertBefore(popup, document.body.firstChild);})();">Substack OPML</a>
 </div>
 <div class='step'>
-  <div>Step 2. Go to <a href="https://reader.substack.com/inbox">Substack Reader</a>, click the bookmarklet, and download the OPML file</div>
+  <div>Step 2. Go to <a target="_blank" href="https://reader.substack.com/inbox">Substack Reader</a>, click the bookmarklet, and download the OPML file</div>
   <img src="bookmarklet.gif">
 </div>
 </body>
